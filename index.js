@@ -66,7 +66,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-    return Math.ceil(Math.random() * Math.ceil(3));
+    return Math.ceil(Math.random() * 2);   /*CHANGE BACK */
   }
   inning();
   console.log(inning());
@@ -160,23 +160,28 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScoreCB, inningcb, inning) {
+function scoreboard(getInningScoreCB, inningcb, tbp) {
   /* CODE HERE */
-  const inningsArray = [];
-  for(let i=0; i < inning; i++){
-    return{
-      
-    
-    }
-
-  }
+  const scoreboardArray = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  
+  for(let i=0; i < tbp; i++){
+    let currentScore = getInningScoreCB(inningcb);
+    homeScore = homeScore + currentScore.Home;
+    awayScore = awayScore + currentScore.Away;
+    scoreboardArray.push(`Inning: ${i + 1}, Home: ${currentScore.Home}, Away: ${currentScore.Away}`);
+/*     console.log(currentScore);
+ */  }
+ 
   if (homeScore === awayScore){
-    `This game will require extra innings: Away ${awayScore} - Home ${homeScore}`
+    scoreboardArray.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`);
   } else {
-    `Final Score: Away ${awayScore} - Home ${homeScore}`
+    scoreboardArray.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
   }
-
+  return scoreboardArray;
 }
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 
