@@ -90,7 +90,7 @@ Use the finalScore function below to do the following:
 function finalScore(inningcb, tbp){
   let homeScore = 0;
   let awayScore = 0;
-  for (let i=0; i < 3; i++){
+  for (let i=0; i < tbp; i++){
     homeScore = homeScore + inningcb();
     awayScore = homeScore + inningcb();
   }
@@ -101,6 +101,7 @@ function finalScore(inningcb, tbp){
 }
 console.log(finalScore(inning, 9));
 
+
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
@@ -110,11 +111,11 @@ Use the getInningScore() function below to do the following:
 // return an object with a score for home and away 
 function getInningScore(inningcb){
   return {
-    Home: finalScore(inningcb),
-    Away: finalScore(inningcb)
+    Home: inningcb(),
+    Away: inningcb(),
   }
 }
-console.log('task 4', getInningScore(5));
+console.log('task 4', getInningScore(inning));
 
 
 
@@ -159,8 +160,22 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScoreCB, inningcb, inning) {
   /* CODE HERE */
+  const inningsArray = [];
+  for(let i=0; i < inning; i++){
+    return{
+      
+    
+    }
+
+  }
+  if (homeScore === awayScore){
+    `This game will require extra innings: Away ${awayScore} - Home ${homeScore}`
+  } else {
+    `Final Score: Away ${awayScore} - Home ${homeScore}`
+  }
+
 }
 
 
